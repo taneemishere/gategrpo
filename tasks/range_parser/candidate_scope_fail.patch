@@ -1,0 +1,10 @@
+diff --git a/spec.md b/spec.md
+index 370fda5..b5173c1 100644
+--- a/spec.md
++++ b/spec.md
+@@ -1,4 +1,4 @@
+-# Integer range parser spec
++# Changed integer range parser spec
+ 
+ - `parse_ranges(text)` returns integers described by a comma-separated string.
+ - A single integer token adds that integer.

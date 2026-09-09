@@ -1,0 +1,13 @@
+diff --git a/parser.py b/parser.py
+index 32cf20e..4b9d3f3 100644
+--- a/parser.py
++++ b/parser.py
+@@ -7,7 +7,7 @@ def parse_table(markdown):
+ 
+     headers = [cell.strip() for cell in table_lines[0].strip("|").split("|")]
+     rows = []
+-    for line in table_lines[2:]:
++    for line in table_lines[1:]:
+         values = [cell.strip() for cell in line.strip("|").split("|")]
+         rows.append(dict(zip(headers, values)))
+     return rows

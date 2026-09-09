@@ -1,0 +1,11 @@
+{
+  "id": "smoke_markdown_parser",
+  "name": "Spec-grounded Markdown table parser repair",
+  "workspace": "repo",
+  "instructions": "instructions.md",
+  "allowed_paths": ["parser.py"],
+  "visible_tests": ["tests/visible"],
+  "regression_tests": ["tests/regression"],
+  "default_patch": "candidate.patch",
+  "candidate_patches": ["candidate_visible_fail.patch", "candidate.patch"]
+}

@@ -1,0 +1,64 @@
+diff --git a/rows.py b/rows.py
+index e3ac953..8ff58b3 100644
+--- a/rows.py
++++ b/rows.py
+@@ -1,8 +1,32 @@
++def _split_csv_line(line):
++    fields = []
++    current = []
++    in_quotes = False
++    for char in line:
++        if char == '"':
++            in_quotes = not in_quotes
++            continue
++        if char == ',' and not in_quotes:
++            fields.append(''.join(current))
++            current = []
++            continue
++        current.append(char)
++    fields.append(''.join(current))
++    parsed = []
++    for field in fields:
++        stripped = field.strip()
++        if len(stripped) >= 2 and stripped[0] == '"' and stripped[-1] == '"':
++            parsed.append(stripped[1:-1])
++        else:
++            parsed.append(stripped)
++    return parsed
++
++
+ def parse_rows(text):
+     """Parse a CSV-like text table into rows."""
+     rows = []
+     for line in text.splitlines():
+         if not line.strip():
+             continue
+-        rows.append([cell.strip() for cell in line.split(',')])
++        rows.append(_split_csv_line(line))
+     return rows
+diff --git a/summary.py b/summary.py
+index 82a82b6..a13dfc7 100644
+--- a/summary.py
++++ b/summary.py
+@@ -6,10 +6,16 @@ def total(text, column):
+     rows = parse_rows(text)
+     if not rows:
+         return 0
+-    column_index = 0 if column else 0
++    header = rows[0]
++    if column not in header:
++        raise ValueError(f'unknown column: {column}')
++    column_index = header.index(column)
+     total = 0
+-    for row in rows:
+-        if not row:
+-            continue
+-        total += int(row[column_index])
++    for row in rows[1:]:
++        if column_index >= len(row):
++            raise ValueError(f'malformed row: {row}')
++        try:
++            total += int(row[column_index])
++        except ValueError as exc:
++            raise ValueError(f'non-integer value for {column}: {row[column_index]}') from exc
+     return total

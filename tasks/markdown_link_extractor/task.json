@@ -1,0 +1,22 @@
+{
+  "id": "markdown_link_extractor",
+  "name": "Markdown inline link extraction",
+  "workspace": "repo",
+  "instructions": "instructions.md",
+  "allowed_paths": [
+    "links.py"
+  ],
+  "visible_tests": [
+    "tests/visible"
+  ],
+  "regression_tests": [
+    "tests/regression"
+  ],
+  "default_patch": "candidate_depth_scanner.patch",
+  "candidate_patches": [
+    "candidate_regex_greedy.patch",
+    "candidate_regex_charclass.patch",
+    "candidate_regex_oneparen.patch",
+    "candidate_depth_scanner.patch"
+  ]
+}

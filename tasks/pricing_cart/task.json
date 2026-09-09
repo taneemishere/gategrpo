@@ -1,0 +1,21 @@
+{
+  "id": "pricing_cart",
+  "name": "Discounted pricing and cart totals",
+  "workspace": "repo",
+  "instructions": "instructions.md",
+  "allowed_paths": [
+    "pricing.py",
+    "cart.py"
+  ],
+  "visible_tests": [
+    "tests/visible"
+  ],
+  "regression_tests": [
+    "tests/regression"
+  ],
+  "default_patch": "candidate.patch",
+  "candidate_patches": [
+    "candidate_visible_fail.patch",
+    "candidate.patch"
+  ]
+}

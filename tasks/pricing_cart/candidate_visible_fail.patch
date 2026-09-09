@@ -1,0 +1,12 @@
+diff --git a/cart.py b/cart.py
+index 191bbd2..9f47cdf 100644
+--- a/cart.py
++++ b/cart.py
+@@ -5,5 +5,7 @@ def cart_total(items):
+     """Return the discounted cart total in cents."""
+     total = 0
+     for unit_cents, quantity, discount_pct in items:
++        if not isinstance(quantity, int) or isinstance(quantity, bool) or quantity <= 0:
++            raise ValueError('quantity must be a positive int')
+         total += unit_cents * quantity
+     return total

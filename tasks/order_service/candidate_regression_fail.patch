@@ -1,0 +1,48 @@
+diff --git a/shop/pricing.py b/shop/pricing.py
+index 0eaf9c0..c234690 100644
+--- a/shop/pricing.py
++++ b/shop/pricing.py
+@@ -7,11 +7,11 @@ DISCOUNTS = {
+ def apply_discount(subtotal_cents: int, code: str | None) -> int:
+     if code is None:
+         return subtotal_cents
+-    discount_pct = DISCOUNTS[code]
+-    discounted = subtotal_cents * (100 - discount_pct) / 100.0
+-    return int(discounted)
++    discount_pct = DISCOUNTS.get(code, 0)
++    discounted = subtotal_cents * (100 - discount_pct)
++    return (discounted + 50) // 100
+ 
+ 
+ def with_tax(amount_cents: int, tax_bps: int) -> int:
+-    taxed = amount_cents * (10000 + tax_bps) / 10000.0
+-    return int(taxed)
++    taxed = amount_cents * (10000 + tax_bps)
++    return (taxed + 5000) // 10000
+
+diff --git a/shop/checkout.py b/shop/checkout.py
+index 6b9abc8..f40b22f 100644
+--- a/shop/checkout.py
++++ b/shop/checkout.py
+@@ -1,12 +1,19 @@
+ from shop.catalog import unit_price_cents
++from shop.inventory import Inventory
++from shop.pricing import apply_discount, with_tax
+ 
+ 
+ def checkout(cart, inventory, discount_code=None, tax_bps=0):
+     subtotal_cents = 0
+     for sku, qty in cart:
+         subtotal_cents += unit_price_cents(sku) * qty
++    if isinstance(inventory, Inventory):
++        for sku, qty in cart:
++            inventory.reserve(sku, qty)
++    discounted_cents = apply_discount(subtotal_cents, discount_code)
++    total_cents = with_tax(discounted_cents, tax_bps)
+     return {
+         "subtotal_cents": subtotal_cents,
+         "discount_code": discount_code,
+-        "total_cents": subtotal_cents,
++        "total_cents": total_cents,
+     }
+

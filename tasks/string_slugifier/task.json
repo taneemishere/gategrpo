@@ -1,0 +1,11 @@
+{
+  "id": "string_slugifier",
+  "name": "Spec-grounded slugifier repair",
+  "workspace": "repo",
+  "instructions": "instructions.md",
+  "allowed_paths": ["slug.py"],
+  "visible_tests": ["tests/visible"],
+  "regression_tests": ["tests/regression"],
+  "default_patch": "candidate.patch",
+  "candidate_patches": ["candidate_visible_fail.patch", "candidate.patch"]
+}

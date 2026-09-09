@@ -1,0 +1,11 @@
+{
+  "id": "range_parser",
+  "name": "Spec-grounded integer range parser repair",
+  "workspace": "repo",
+  "instructions": "instructions.md",
+  "allowed_paths": ["ranges.py"],
+  "visible_tests": ["tests/visible"],
+  "regression_tests": ["tests/regression"],
+  "default_patch": "candidate.patch",
+  "candidate_patches": ["candidate_visible_fail.patch", "candidate.patch"]
+}

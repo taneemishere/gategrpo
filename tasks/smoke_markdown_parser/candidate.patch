@@ -1,0 +1,53 @@
+diff --git a/parser.py b/parser.py
+index e6f2d6f..7db8a9f 100644
+--- a/parser.py
++++ b/parser.py
+@@ -1,13 +1,44 @@
++def _split_row(line):
++    cells = []
++    current = []
++    escaped = False
++    inner = line.strip()
++    if inner.startswith("|"):
++        inner = inner[1:]
++    if inner.endswith("|"):
++        inner = inner[:-1]
++
++    for char in inner:
++        if escaped:
++            current.append(char)
++            escaped = False
++            continue
++        if char == "\\":
++            escaped = True
++            continue
++        if char == "|":
++            cells.append("".join(current).strip())
++            current = []
++            continue
++        current.append(char)
++
++    if escaped:
++        current.append("\\")
++    cells.append("".join(current).strip())
++    return cells
++
++
+ def parse_table(markdown):
+     """Parse a simple Markdown table into row dictionaries."""
+-    lines = [line.strip() for line in markdown.splitlines() if line.strip()]
+-    table_lines = [line for line in lines if line.startswith("|")]
++    table_lines = [line.strip() for line in markdown.splitlines() if line.strip().startswith("|")]
+     if len(table_lines) < 2:
+         return []
+ 
+-    headers = [cell.strip() for cell in table_lines[0].strip("|").split("|")]
++    headers = _split_row(table_lines[0])
+     rows = []
+     for line in table_lines[2:]:
+-        values = [cell.strip() for cell in line.strip("|").split("|")]
++        values = _split_row(line)
++        if len(values) != len(headers):
++            raise ValueError("row has a different number of cells than the header")
+         rows.append(dict(zip(headers, values)))
+     return rows

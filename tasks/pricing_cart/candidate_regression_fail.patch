@@ -1,0 +1,21 @@
+diff --git a/cart.py b/cart.py
+index 191bbd2..3972f0c 100644
+--- a/cart.py
++++ b/cart.py
+@@ -5,5 +5,5 @@ def cart_total(items):
+     """Return the discounted cart total in cents."""
+     total = 0
+     for unit_cents, quantity, discount_pct in items:
+-        total += unit_cents * quantity
++        total += discounted_cents(unit_cents, discount_pct) * quantity
+     return total
+diff --git a/pricing.py b/pricing.py
+index 84ea408..1543f10 100644
+--- a/pricing.py
++++ b/pricing.py
+@@ -1,3 +1,4 @@
+ def discounted_cents(unit_cents, discount_pct):
+     """Return the discounted unit price in cents."""
+-    return int(unit_cents * (100 - discount_pct) / 100)
++    discounted_numerator = unit_cents * (100 - discount_pct)
++    return (discounted_numerator + 50) // 100

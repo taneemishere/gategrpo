@@ -1,0 +1,10 @@
+diff --git a/spec.md b/spec.md
+index 4bd65a1..a5fdc96 100644
+--- a/spec.md
++++ b/spec.md
+@@ -1,4 +1,4 @@
+-# Config loader spec
++# Changed config loader spec
+ 
+ - `parse_config(text)` returns a dictionary of key/value pairs.
+ - Blank lines and lines starting with `#` are ignored.

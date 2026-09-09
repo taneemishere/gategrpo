@@ -1,0 +1,18 @@
+diff --git a/links.py b/links.py
+index 6e90b9b..4a7e4c1 100644
+--- a/links.py
++++ b/links.py
+@@ -1,3 +1,10 @@
+-def extract_links(text: str) -> list[dict]:
+-    """Return the inline Markdown links in order of appearance."""
+-    return []
++import re
++
++
++def extract_links(text: str) -> list[dict]:
++    """Return the inline Markdown links in order of appearance."""
++    pattern = re.compile(r"\[((?:[^\[\]]|\[[^\[\]]*\])*)\]\(((?:[^()]|\([^()]*\))*)\)")
++    return [
++        {"text": link_text, "url": url}
++        for link_text, url in pattern.findall(text)
++    ]

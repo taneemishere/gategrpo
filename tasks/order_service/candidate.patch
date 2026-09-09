@@ -1,0 +1,75 @@
+diff --git a/shop/pricing.py b/shop/pricing.py
+index 0eaf9c0..93239b8 100644
+--- a/shop/pricing.py
++++ b/shop/pricing.py
+@@ -7,11 +7,15 @@ DISCOUNTS = {
+ def apply_discount(subtotal_cents: int, code: str | None) -> int:
+     if code is None:
+         return subtotal_cents
+-    discount_pct = DISCOUNTS[code]
+-    discounted = subtotal_cents * (100 - discount_pct) / 100.0
+-    return int(discounted)
++    discount_pct = DISCOUNTS.get(code)
++    if discount_pct is None:
++        raise ValueError(f"unknown discount code: {code}")
++    discounted = subtotal_cents * (100 - discount_pct)
++    return (discounted + 50) // 100
+ 
+ 
+ def with_tax(amount_cents: int, tax_bps: int) -> int:
+-    taxed = amount_cents * (10000 + tax_bps) / 10000.0
+-    return int(taxed)
++    if not isinstance(tax_bps, int) or isinstance(tax_bps, bool) or tax_bps < 0:
++        raise ValueError("tax_bps must be a non-negative int")
++    taxed = amount_cents * (10000 + tax_bps)
++    return (taxed + 5000) // 10000
+
+diff --git a/shop/inventory.py b/shop/inventory.py
+index 282b7da..799752d 100644
+--- a/shop/inventory.py
++++ b/shop/inventory.py
+@@ -6,4 +6,11 @@ class Inventory:
+         return self._stock.get(sku, 0)
+ 
+     def reserve(self, sku: str, qty: int) -> None:
+-        self._stock[sku] -= qty
++        if not isinstance(qty, int) or isinstance(qty, bool) or qty <= 0:
++            raise ValueError("qty must be a positive int")
++        if sku not in self._stock:
++            raise ValueError(f"unknown sku: {sku}")
++        current = self._stock[sku]
++        if current < qty:
++            raise ValueError(f"insufficient stock for {sku}")
++        self._stock[sku] = current - qty
+
+diff --git a/shop/checkout.py b/shop/checkout.py
+index 6b9abc8..93c7dd7 100644
+--- a/shop/checkout.py
++++ b/shop/checkout.py
+@@ -1,12 +1,24 @@
+ from shop.catalog import unit_price_cents
++from shop.inventory import Inventory
++from shop.pricing import apply_discount, with_tax
+ 
+ 
+ def checkout(cart, inventory, discount_code=None, tax_bps=0):
+     subtotal_cents = 0
++    requested = {}
+     for sku, qty in cart:
+         subtotal_cents += unit_price_cents(sku) * qty
++        requested[sku] = requested.get(sku, 0) + qty
++    if isinstance(inventory, Inventory):
++        for sku, qty in requested.items():
++            if inventory.available(sku) < qty:
++                raise ValueError(f"insufficient stock for {sku}")
++        for sku, qty in cart:
++            inventory.reserve(sku, qty)
++    discounted_cents = apply_discount(subtotal_cents, discount_code)
++    total_cents = with_tax(discounted_cents, tax_bps)
+     return {
+         "subtotal_cents": subtotal_cents,
+         "discount_code": discount_code,
+-        "total_cents": subtotal_cents,
++        "total_cents": total_cents,
+     }
+

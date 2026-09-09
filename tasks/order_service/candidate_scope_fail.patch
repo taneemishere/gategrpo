@@ -1,0 +1,10 @@
+diff --git a/shop/catalog.py b/shop/catalog.py
+index aa0d887..d28f572 100644
+--- a/shop/catalog.py
++++ b/shop/catalog.py
+@@ -10,3 +10,4 @@ def unit_price_cents(sku: str) -> int:
+         return CATALOG[sku]
+     except KeyError as exc:
+         raise ValueError(f"unknown sku: {sku}") from exc
++# out-of-scope edit
+

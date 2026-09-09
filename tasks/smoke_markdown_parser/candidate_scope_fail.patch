@@ -1,0 +1,10 @@
+diff --git a/spec.md b/spec.md
+index 0f4f67f..ab20a3d 100644
+--- a/spec.md
++++ b/spec.md
+@@ -1,4 +1,4 @@
+-# Markdown table parser spec
++# Changed Markdown table parser spec
+ 
+ - `parse_table(markdown)` returns one dictionary per body row.
+ - Header names come from the first table row.

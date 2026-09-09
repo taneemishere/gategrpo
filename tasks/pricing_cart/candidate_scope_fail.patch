@@ -1,0 +1,9 @@
+diff --git a/spec.md b/spec.md
+index 6a4ff48..4a26f46 100644
+--- a/spec.md
++++ b/spec.md
+@@ -4,3 +4,4 @@
+ - `discount_pct` must be an int in the inclusive range 0..100; otherwise raise `ValueError`.
+ - `cart_total(items)` sums `discounted_cents(unit_cents, discount_pct) * quantity` for each item tuple.
+ - `quantity` must be a positive int; otherwise raise `ValueError`.
++- This spec file was edited out of scope.

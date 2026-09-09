@@ -1,0 +1,10 @@
+diff --git a/spec.md b/spec.md
+index 7942426..4a27559 100644
+--- a/spec.md
++++ b/spec.md
+@@ -1,4 +1,4 @@
+-# Slugifier spec
++# Changed slugifier spec
+ 
+ - `slugify(text)` returns a lowercase URL slug.
+ - Letters and digits are preserved.

@@ -1,0 +1,27 @@
+diff --git a/cart.py b/cart.py
+index 191bbd2..3653128 100644
+--- a/cart.py
++++ b/cart.py
+@@ -5,5 +5,7 @@ def cart_total(items):
+     """Return the discounted cart total in cents."""
+     total = 0
+     for unit_cents, quantity, discount_pct in items:
+-        total += unit_cents * quantity
++        if not isinstance(quantity, int) or isinstance(quantity, bool) or quantity <= 0:
++            raise ValueError('quantity must be a positive int')
++        total += discounted_cents(unit_cents, discount_pct) * quantity
+     return total
+diff --git a/pricing.py b/pricing.py
+index 84ea408..c8eada8 100644
+--- a/pricing.py
++++ b/pricing.py
+@@ -1,3 +1,8 @@
+ def discounted_cents(unit_cents, discount_pct):
+     """Return the discounted unit price in cents."""
+-    return int(unit_cents * (100 - discount_pct) / 100)
++    if not isinstance(discount_pct, int) or isinstance(discount_pct, bool):
++        raise ValueError('discount_pct must be an int from 0 to 100')
++    if discount_pct < 0 or discount_pct > 100:
++        raise ValueError('discount_pct must be between 0 and 100')
++    discounted_numerator = unit_cents * (100 - discount_pct)
++    return (discounted_numerator + 50) // 100

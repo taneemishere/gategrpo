@@ -1,0 +1,21 @@
+diff --git a/ranges.py b/ranges.py
+index 04d5e8a..c81f629 100644
+--- a/ranges.py
++++ b/ranges.py
+@@ -1,6 +1,15 @@
+ def parse_ranges(text):
+     """Parse comma-separated integers into a list."""
+     values = []
+     for part in text.split(","):
+-        values.append(int(part))
++        part = part.strip()
++        if not part:
++            continue
++        if "-" in part:
++            start_text, end_text = part.split("-", 1)
++            start = int(start_text.strip())
++            end = int(end_text.strip())
++            values.extend(range(start, end + 1))
++        else:
++            values.append(int(part))
+     return values

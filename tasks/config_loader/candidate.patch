@@ -1,0 +1,25 @@
+diff --git a/config_loader.py b/config_loader.py
+index 8d59a9d..4cb5572 100644
+--- a/config_loader.py
++++ b/config_loader.py
+@@ -1,9 +1,18 @@
+ def parse_config(text):
+     """Parse KEY=VALUE lines into a dictionary."""
+     config = {}
+     for line in text.splitlines():
++        line = line.strip()
++        if not line or line.startswith("#"):
++            continue
+         if "=" not in line:
+             continue
+-        key, value = line.split("=")
+-        config[key.strip()] = value.strip()
++        key, value = line.split("=", 1)
++        key = key.strip()
++        value = value.strip()
++        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
++            value = value[1:-1]
++        if key in config:
++            raise ValueError(f"duplicate config key: {key}")
++        config[key] = value
+     return config

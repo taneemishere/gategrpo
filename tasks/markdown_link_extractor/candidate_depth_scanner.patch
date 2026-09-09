@@ -1,0 +1,80 @@
+--- a/links.py
++++ b/links.py
+@@ -1,3 +1,76 @@
+ def extract_links(text: str) -> list[dict]:
+     """Return the inline Markdown links in order of appearance."""
+-    return []
++    links: list[dict] = []
++    index = 0
++    while index < len(text):
++        if text[index] == "\\":
++            if index + 1 < len(text) and text[index + 1] in "[]()":
++                index += 2
++            else:
++                index += 1
++            continue
++        if text[index] != "[":
++            index += 1
++            continue
++
++        link_text_chars: list[str] = []
++        depth = 1
++        index += 1
++        while index < len(text):
++            char = text[index]
++            if char == "\\":
++                if index + 1 < len(text) and text[index + 1] in "[]()":
++                    link_text_chars.append(text[index + 1])
++                    index += 2
++                    continue
++            if char == "[":
++                depth += 1
++                link_text_chars.append(char)
++                index += 1
++                continue
++            if char == "]":
++                depth -= 1
++                if depth == 0:
++                    index += 1
++                    break
++                link_text_chars.append(char)
++                index += 1
++                continue
++            link_text_chars.append(char)
++            index += 1
++        else:
++            raise ValueError("unclosed link text")
++
++        if index >= len(text) or text[index] != "(":
++            raise ValueError("missing link url")
++        index += 1
++        url_chars: list[str] = []
++        depth = 1
++        while index < len(text):
++            char = text[index]
++            if char == "\\":
++                if index + 1 < len(text) and text[index + 1] in "[]()":
++                    url_chars.append(text[index + 1])
++                    index += 2
++                    continue
++            if char == "(":
++                depth += 1
++                url_chars.append(char)
++                index += 1
++                continue
++            if char == ")":
++                depth -= 1
++                if depth == 0:
++                    links.append(
++                        {"text": "".join(link_text_chars), "url": "".join(url_chars)}
++                    )
++                    index += 1
++                    break
++                url_chars.append(char)
++                index += 1
++                continue
++            url_chars.append(char)
++            index += 1
++        else:
++            raise ValueError("unclosed link url")
++    return links

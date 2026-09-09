@@ -1,0 +1,9 @@
+diff --git a/spec.md b/spec.md
+index ec97bd1..9fd1852 100644
+--- a/spec.md
++++ b/spec.md
+@@ -7,3 +7,4 @@
+ - Quoted fields are returned without the surrounding quotes.
+ - Empty fields are preserved as empty strings.
+ - `total(text, column)` treats the first parsed row as the header, sums the named column across body rows, and raises `ValueError` if the column is missing or any body value is not a valid integer.
++- This spec file was edited out of scope.
