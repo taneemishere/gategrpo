@@ -1,0 +1,377 @@
+{
+  "name": "multifile_suite",
+  "cases": [
+    {
+      "id": "csv_single_success_01",
+      "task_dir": "tasks/csv_report",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "csv_visible_then_success_01",
+      "task_dir": "tasks/csv_report",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "csv_regression_then_success_01",
+      "task_dir": "tasks/csv_report",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "csv_scope_route_decoy_01",
+      "task_dir": "tasks/csv_report",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pricing_single_success_01",
+      "task_dir": "tasks/pricing_cart",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pricing_visible_then_success_01",
+      "task_dir": "tasks/pricing_cart",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pricing_regression_then_success_01",
+      "task_dir": "tasks/pricing_cart",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pricing_scope_route_decoy_01",
+      "task_dir": "tasks/pricing_cart",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "order_single_success_01",
+      "task_dir": "tasks/order_service",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "complete_three_file_fix",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "order_visible_then_success_01",
+      "task_dir": "tasks/order_service",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "partial_checkout_fix",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "complete_three_file_fix",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "order_regression_then_success_01",
+      "task_dir": "tasks/order_service",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "happy_path_only_fix",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "complete_three_file_fix",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "order_scope_route_decoy_01",
+      "task_dir": "tasks/order_service",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "scope_decoy",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "partial_checkout_fix",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "complete_three_file_fix",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    }
+  ]
+}

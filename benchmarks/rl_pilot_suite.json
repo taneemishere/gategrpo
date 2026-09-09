@@ -1,0 +1,37 @@
+{
+  "name": "rl_pilot_suite",
+  "cases": [
+    {
+      "id": "pilot_smoke_markdown_parser",
+      "task_dir": "tasks/smoke_markdown_parser"
+    },
+    {
+      "id": "pilot_string_slugifier",
+      "task_dir": "tasks/string_slugifier"
+    },
+    {
+      "id": "pilot_config_loader",
+      "task_dir": "tasks/config_loader"
+    },
+    {
+      "id": "pilot_range_parser",
+      "task_dir": "tasks/range_parser"
+    },
+    {
+      "id": "pilot_csv_report",
+      "task_dir": "tasks/csv_report"
+    },
+    {
+      "id": "pilot_markdown_link_extractor",
+      "task_dir": "tasks/markdown_link_extractor"
+    },
+    {
+      "id": "pilot_pricing_cart",
+      "task_dir": "tasks/pricing_cart"
+    },
+    {
+      "id": "pilot_order_service",
+      "task_dir": "tasks/order_service"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "controller_diversification_suite",
+  "cases": [
+    {
+      "id": "controller_diversification_visible_repair_chain_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "repeated_behavioral_failure_01",
+          "generator": "synthetic_generator",
+          "intent": "repeated_behavioral_failure",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate_visible_fail_2.patch",
+          "label": "repeated_behavioral_failure_02",
+          "generator": "synthetic_generator",
+          "intent": "repeated_behavioral_failure",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate_visible_fail_3.patch",
+          "label": "repeated_behavioral_failure_03",
+          "generator": "synthetic_generator",
+          "intent": "repeated_behavioral_failure",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "diversify_to_correct_fix",
+          "generator": "synthetic_generator",
+          "intent": "diversify_from_behavior_repair",
+          "compatible_routes": [
+            "diversify_from_behavior_repair"
+          ]
+        }
+      ]
+    }
+  ]
+}

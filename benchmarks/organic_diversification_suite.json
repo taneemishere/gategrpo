@@ -1,0 +1,47 @@
+{
+  "name": "organic_diversification_suite",
+  "cases": [
+    {
+      "id": "markdown_link_extractor_visible_repair_chain_01",
+      "task_dir": "tasks/markdown_link_extractor",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regex_greedy.patch",
+          "label": "regex_greedy_tweak",
+          "generator": "targeted_behavior_repair",
+          "intent": "behavior_tweak_repeats",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate_regex_charclass.patch",
+          "label": "regex_charclass_tweak",
+          "generator": "targeted_behavior_repair",
+          "intent": "behavior_tweak_repeats",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate_regex_oneparen.patch",
+          "label": "regex_oneparen_tweak",
+          "generator": "targeted_behavior_repair",
+          "intent": "behavior_tweak_repeats",
+          "compatible_routes": [
+            "behavior_repair"
+          ]
+        },
+        {
+          "patch": "candidate_depth_scanner.patch",
+          "label": "depth_scanner_rewrite",
+          "generator": "approach_change",
+          "intent": "algorithmic_rewrite",
+          "compatible_routes": [
+            "diversify_from_behavior_repair"
+          ]
+        }
+      ]
+    }
+  ]
+}

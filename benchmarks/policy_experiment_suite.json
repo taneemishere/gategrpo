@@ -1,0 +1,69 @@
+{
+  "name": "policy_experiment_suite",
+  "source_suite": "benchmarks/repair_routing_suite.json",
+  "splits": {
+    "train": [
+      "parser_single_success_01",
+      "parser_visible_then_success_01",
+      "parser_regression_then_success_01",
+      "parser_visible_route_decoy_01",
+      "slug_single_success_01",
+      "slug_visible_then_success_01",
+      "slug_regression_then_success_01",
+      "slug_visible_route_decoy_01",
+      "config_single_success_01",
+      "config_visible_then_success_01",
+      "config_regression_then_success_01",
+      "config_visible_route_decoy_01",
+      "range_single_success_01",
+      "range_visible_then_success_01",
+      "range_regression_then_success_01",
+      "range_visible_route_decoy_01"
+    ],
+    "validation": [
+      "parser_single_success_02",
+      "parser_visible_then_success_02",
+      "parser_regression_route_decoy_01",
+      "parser_repeated_visible_unsolved_01",
+      "slug_single_success_02",
+      "slug_visible_then_success_02",
+      "slug_regression_route_decoy_01",
+      "slug_repeated_visible_unsolved_01",
+      "config_single_success_02",
+      "config_visible_then_success_02",
+      "config_regression_route_decoy_01",
+      "config_repeated_visible_unsolved_01",
+      "range_single_success_02",
+      "range_visible_then_success_02",
+      "range_regression_route_decoy_01",
+      "range_repeated_visible_unsolved_01"
+    ],
+    "test": [
+      "parser_regression_then_success_02",
+      "parser_scope_route_decoy_01",
+      "slug_regression_then_success_02",
+      "slug_scope_route_decoy_01",
+      "config_regression_then_success_02",
+      "config_scope_route_decoy_01",
+      "range_regression_then_success_02",
+      "range_scope_route_decoy_01"
+    ]
+  },
+  "policies": [
+    {
+      "id": "one_attempt_conservative",
+      "max_candidates": 1,
+      "max_repeated_failures": 2
+    },
+    {
+      "id": "two_attempt_budgeted",
+      "max_candidates": 2,
+      "max_repeated_failures": 2
+    },
+    {
+      "id": "strict_repeat_stop",
+      "max_candidates": 3,
+      "max_repeated_failures": 1
+    }
+  ]
+}

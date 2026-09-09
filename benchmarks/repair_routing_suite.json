@@ -1,0 +1,1229 @@
+{
+  "name": "repair_routing_suite",
+  "cases": [
+    {
+      "id": "parser_single_success_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_single_success_02",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_visible_then_success_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_visible_then_success_02",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_regression_then_success_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_regression_then_success_02",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_visible_route_decoy_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_regression_route_decoy_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_scope_route_decoy_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parser_repeated_visible_unsolved_01",
+      "task_dir": "tasks/smoke_markdown_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        }
+      ]
+    },
+    {
+      "id": "slug_single_success_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_single_success_02",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_visible_then_success_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_visible_then_success_02",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_regression_then_success_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_regression_then_success_02",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_visible_route_decoy_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_regression_route_decoy_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_scope_route_decoy_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slug_repeated_visible_unsolved_01",
+      "task_dir": "tasks/string_slugifier",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        }
+      ]
+    },
+    {
+      "id": "config_single_success_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_single_success_02",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_visible_then_success_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_visible_then_success_02",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_regression_then_success_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_regression_then_success_02",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_visible_route_decoy_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_regression_route_decoy_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_scope_route_decoy_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "config_repeated_visible_unsolved_01",
+      "task_dir": "tasks/config_loader",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        }
+      ]
+    },
+    {
+      "id": "range_single_success_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_single_success_02",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_visible_then_success_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_visible_then_success_02",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_regression_then_success_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_regression_then_success_02",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_visible_route_decoy_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_regression_route_decoy_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_regression_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_scope_route_decoy_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_scope_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate.patch",
+          "label": "spec_complete_repair",
+          "generator": "synthetic_generator",
+          "intent": "complete_spec_repair",
+          "compatible_routes": [
+            "behavior_repair",
+            "regression_repair",
+            "scope_repair",
+            "safety_repair",
+            "syntax_repair",
+            "patch_format_repair",
+            "general_repair",
+            "diversify_from_behavior_repair",
+            "diversify_from_regression_repair",
+            "diversify_from_scope_repair"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "range_repeated_visible_unsolved_01",
+      "task_dir": "tasks/range_parser",
+      "candidate_patches": [
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        },
+        {
+          "patch": "candidate_visible_fail.patch",
+          "label": "first_pass_attempt",
+          "generator": "synthetic_generator",
+          "intent": "first_pass_attempt_for_gate_coverage",
+          "compatible_routes": []
+        }
+      ]
+    }
+  ]
+}
