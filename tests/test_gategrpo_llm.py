@@ -6,7 +6,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from patchproof.llm import (
+from gategrpo.llm import (
     LLMResponse,
     CachedLLMClient,
     GeneratorMetadata,
@@ -831,7 +831,7 @@ def test_run_llm_search_omits_cost_when_usage_estimated(tmp_path):
 def test_parse_generator_metadata_reads_declared_block():
     content = (
         "```diff\ndiff --git a/x b/x\n```\n"
-        "```patchproof-metadata\n"
+        "```gategrpo-metadata\n"
         '{"intent": "complete_spec_repair", "compatible_routes": ["behavior_repair", "regression_repair"]}\n'
         "```\n"
     )
@@ -844,7 +844,7 @@ def test_parse_generator_metadata_reads_declared_block():
 
 def test_parse_generator_metadata_returns_none_without_block():
     assert parse_generator_metadata("no metadata here") is None
-    assert parse_generator_metadata("```patchproof-metadata\nnot json\n```") is None
+    assert parse_generator_metadata("```gategrpo-metadata\nnot json\n```") is None
 
 
 class FakeMetadataClient:
@@ -860,7 +860,7 @@ class FakeMetadataClient:
     def chat(self, messages):
         content = (
             f"```diff\n{self.patch_text}\n```\n"
-            "```patchproof-metadata\n"
+            "```gategrpo-metadata\n"
             '{"intent": "complete_spec_repair", "compatible_routes": ["behavior_repair"]}\n'
             "```\n"
         )
@@ -894,7 +894,7 @@ class FakeRouteMetadataClient:
     def chat(self, messages):
         content = (
             f"```diff\n{self.patch_text}\n```\n"
-            "```patchproof-metadata\n"
+            "```gategrpo-metadata\n"
             + json.dumps({"intent": self.intent, "compatible_routes": self.routes})
             + "\n```\n"
         )
@@ -940,5 +940,5 @@ def test_run_llm_search_records_reproducibility_metadata(tmp_path):
     assert repro["provider"] == "vllm"
     assert repro["endpoint"] == "fake://test"
     assert repro["seed"] is None
-    assert isinstance(repro["patchproof_version"], str)
+    assert isinstance(repro["gategrpo_version"], str)
     assert len(repro["config_fingerprint"]) == 64

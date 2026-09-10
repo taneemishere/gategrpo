@@ -1,0 +1,16 @@
+# Core dependencies for GateGRPO
+
+# Development / testing
+pytest>=9.0.3
+
+# Training
+trl
+peft
+accelerate
+unidiff
+
+# Serving
+vllm
+
+# Optional speed-up
+unsloth

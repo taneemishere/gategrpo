@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from patchproof.benchmark import run_benchmark_suite
-from patchproof.models import SearchBudget
-from patchproof.report import generate_html_report, generate_model_matrix_report
-from patchproof.controller import run_search
+from gategrpo.benchmark import run_benchmark_suite
+from gategrpo.models import SearchBudget
+from gategrpo.report import generate_html_report, generate_model_matrix_report
+from gategrpo.controller import run_search
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +30,7 @@ def test_generates_benchmark_html_report(tmp_path):
     run_benchmark_suite(
         SMOKE_SUITE,
         tmp_path / "benchmark",
-        baselines=("single_shot", "full_patchproof"),
+        baselines=("single_shot", "full_gategrpo"),
         budget=SearchBudget(max_candidates=2, max_repeated_failures=2),
     )
 
@@ -39,7 +39,7 @@ def test_generates_benchmark_html_report(tmp_path):
 
     assert "Benchmark summary: repair_routing_suite" in html
     assert "solve@budget" in html
-    assert "full_patchproof" in html
+    assert "full_gategrpo" in html
 
 
 def _write_matrix(run_dir: Path) -> None:

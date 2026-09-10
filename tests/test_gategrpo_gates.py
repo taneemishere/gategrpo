@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from patchproof.runner import run_task
+from gategrpo.runner import run_task
 
 
 ROOT = Path(__file__).resolve().parents[1]

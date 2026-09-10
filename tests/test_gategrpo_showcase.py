@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from patchproof.controller import run_search
-from patchproof.models import SearchBudget
-from patchproof.report import generate_showcase_report
+from gategrpo.controller import run_search
+from gategrpo.models import SearchBudget
+from gategrpo.report import generate_showcase_report
 
 
 ROOT = Path(__file__).resolve().parents[1]

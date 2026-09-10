@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-from patchproof.controller import run_search
-from patchproof.models import CandidateSpec, SearchBudget
+from gategrpo.controller import run_search
+from gategrpo.models import CandidateSpec, SearchBudget
 
 
 ROOT = Path(__file__).resolve().parents[1]

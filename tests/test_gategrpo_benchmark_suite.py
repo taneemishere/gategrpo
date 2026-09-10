@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-from patchproof.benchmark import run_benchmark_suite
-from patchproof.models import SearchBudget
+from gategrpo.benchmark import run_benchmark_suite
+from gategrpo.models import SearchBudget
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,13 +29,13 @@ def test_benchmark_suite_writes_summary_outputs(tmp_path):
     payload = run_benchmark_suite(
         suite_path=suite_path,
         run_dir=tmp_path / "benchmark",
-        baselines=("single_shot", "full_patchproof"),
+        baselines=("single_shot", "full_gategrpo"),
         budget=SearchBudget(max_candidates=2, max_repeated_failures=2),
     )
 
     assert payload["summary"]["single_shot"]["solve_at_budget"] == 0.0
-    assert payload["summary"]["full_patchproof"]["solve_at_budget"] == 1.0
-    assert payload["summary"]["full_patchproof"]["evidence_packets_admitted"] == 1
+    assert payload["summary"]["full_gategrpo"]["solve_at_budget"] == 1.0
+    assert payload["summary"]["full_gategrpo"]["evidence_packets_admitted"] == 1
     assert (tmp_path / "benchmark" / "benchmark_results.json").exists()
     assert (tmp_path / "benchmark" / "benchmark_summary.md").exists()
 
@@ -80,7 +80,7 @@ def test_evidence_aware_review_uses_bounded_evidence_and_metadata(tmp_path):
     payload = run_benchmark_suite(
         suite_path=suite_path,
         run_dir=tmp_path / "benchmark",
-        baselines=("linear_retry", "evidence_aware_review", "full_patchproof"),
+        baselines=("linear_retry", "evidence_aware_review", "full_gategrpo"),
         budget=SearchBudget(max_candidates=2, max_repeated_failures=2),
     )
 
@@ -88,4 +88,4 @@ def test_evidence_aware_review_uses_bounded_evidence_and_metadata(tmp_path):
     assert payload["summary"]["evidence_aware_review"]["solve_at_budget"] == 1.0
     assert payload["summary"]["evidence_aware_review"]["metadata_route_matches"] == 1
     assert payload["summary"]["evidence_aware_review"]["evidence_packets_admitted"] == 1
-    assert payload["summary"]["full_patchproof"]["solve_at_budget"] == 1.0
+    assert payload["summary"]["full_gategrpo"]["solve_at_budget"] == 1.0

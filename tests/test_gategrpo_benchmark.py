@@ -4,14 +4,14 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
-from patchproof.benchmark import (
+from gategrpo.benchmark import (
     _llm_task_summary,
     run_llm_benchmark_suite,
     run_llm_model_matrix,
 )
-from patchproof.generators import generate_candidate_pool
-from patchproof.models import CandidateSpec, SearchBudget, SearchResult
-from patchproof.task import load_task
+from gategrpo.generators import generate_candidate_pool
+from gategrpo.models import CandidateSpec, SearchBudget, SearchResult
+from gategrpo.task import load_task
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,8 +42,8 @@ def test_run_llm_benchmark_suite_deduplicates_task_families_and_reuses_client(tm
             wall_seconds=0.1 * repetition,
         )
 
-    monkeypatch.setattr("patchproof.benchmark.build_llm_client", fake_build_llm_client)
-    monkeypatch.setattr("patchproof.benchmark.run_llm_search", fake_run_llm_search)
+    monkeypatch.setattr("gategrpo.benchmark.build_llm_client", fake_build_llm_client)
+    monkeypatch.setattr("gategrpo.benchmark.run_llm_search", fake_run_llm_search)
 
     payload = run_llm_benchmark_suite(
         SMOKE_SUITE,
@@ -117,8 +117,8 @@ def test_run_llm_benchmark_suite_summary_handles_non_promotions(tmp_path, monkey
             wall_seconds=0.25 * repetition,
         )
 
-    monkeypatch.setattr("patchproof.benchmark.build_llm_client", fake_build_llm_client)
-    monkeypatch.setattr("patchproof.benchmark.run_llm_search", fake_run_llm_search)
+    monkeypatch.setattr("gategrpo.benchmark.build_llm_client", fake_build_llm_client)
+    monkeypatch.setattr("gategrpo.benchmark.run_llm_search", fake_run_llm_search)
 
     payload = run_llm_benchmark_suite(
         SMOKE_SUITE,
@@ -207,7 +207,7 @@ def test_generate_candidate_pool_builds_real_metadata_and_skips_empty_records(tm
             ],
         )
 
-    monkeypatch.setattr("patchproof.generators.run_llm_search", fake_run_llm_search)
+    monkeypatch.setattr("gategrpo.generators.run_llm_search", fake_run_llm_search)
 
     pool = generate_candidate_pool(
         task_dir,
@@ -228,7 +228,7 @@ def test_generate_candidate_pool_builds_real_metadata_and_skips_empty_records(tm
 
 
 def test_run_benchmark_suite_uses_generated_pool_once_per_task_and_marks_summary(tmp_path, monkeypatch):
-    from patchproof.benchmark import run_benchmark_suite
+    from gategrpo.benchmark import run_benchmark_suite
 
     generation_calls: list[Path] = []
     baseline_calls: list[tuple[str, tuple[str, ...], str]] = []
@@ -270,28 +270,28 @@ def test_run_benchmark_suite_uses_generated_pool_once_per_task_and_marks_summary
             "archive_path": None,
         }
 
-    monkeypatch.setattr("patchproof.benchmark._run_baseline", fake_run_baseline)
+    monkeypatch.setattr("gategrpo.benchmark._run_baseline", fake_run_baseline)
 
     payload = run_benchmark_suite(
         SMOKE_SUITE,
         tmp_path / "benchmark",
-        baselines=("single_shot", "full_patchproof"),
+        baselines=("single_shot", "full_gategrpo"),
         candidate_generator=fake_candidate_generator,
     )
 
     assert len(generation_calls) == 4
     assert len(set(generation_calls)) == 4
     assert payload["candidate_generator"] == "llm_live"
-    assert payload["summary"]["full_patchproof"]["candidate_generator"] == "llm_live"
+    assert payload["summary"]["full_gategrpo"]["candidate_generator"] == "llm_live"
     assert payload["results"][0]["candidate_generator"] == "llm_live"
     assert all(call[1] == ("llm_live", "llm_live") for call in baseline_calls)
     assert payload["summary"]["single_shot"]["solve_at_budget"] == 1.0
-    assert payload["summary"]["full_patchproof"]["solve_at_budget"] == 1.0
+    assert payload["summary"]["full_gategrpo"]["solve_at_budget"] == 1.0
 
 
 
-def test_controller_diversification_suite_strictly_lifts_full_patchproof(tmp_path):
-    from patchproof.benchmark import run_benchmark_suite
+def test_controller_diversification_suite_strictly_lifts_full_gategrpo(tmp_path):
+    from gategrpo.benchmark import run_benchmark_suite
 
     suite_path = ROOT / "benchmarks" / "controller_diversification_suite.json"
     payload = run_benchmark_suite(
@@ -302,7 +302,7 @@ def test_controller_diversification_suite_strictly_lifts_full_patchproof(tmp_pat
     )
 
     summary = payload["summary"]
-    assert summary["full_patchproof"]["solve_at_budget"] == 1.0
+    assert summary["full_gategrpo"]["solve_at_budget"] == 1.0
     for baseline in ("single_shot", "linear_retry", "clean_context_review", "evidence_aware_review", "archive_no_routing"):
         assert summary[baseline]["solve_at_budget"] == 0.0
 
@@ -310,7 +310,7 @@ def test_controller_diversification_suite_strictly_lifts_full_patchproof(tmp_pat
 def test_run_llm_benchmark_suite_passes_provider_to_run_llm_search(tmp_path, monkeypatch):
     seen_kwargs: list[dict] = []
 
-    monkeypatch.setattr("patchproof.benchmark.build_llm_client", lambda *a, **k: SimpleNamespace(model="fake-llm"))
+    monkeypatch.setattr("gategrpo.benchmark.build_llm_client", lambda *a, **k: SimpleNamespace(model="fake-llm"))
 
     def fake_run_llm_search(task_dir, run_dir, budget, client=None, **kwargs):
         seen_kwargs.append(kwargs)
@@ -330,7 +330,7 @@ def test_run_llm_benchmark_suite_passes_provider_to_run_llm_search(tmp_path, mon
             currency="USD",
         )
 
-    monkeypatch.setattr("patchproof.benchmark.run_llm_search", fake_run_llm_search)
+    monkeypatch.setattr("gategrpo.benchmark.run_llm_search", fake_run_llm_search)
 
     payload = run_llm_benchmark_suite(
         SMOKE_SUITE,
@@ -378,7 +378,7 @@ def test_run_llm_model_matrix_merges_models_into_comparison(tmp_path, monkeypatc
             },
         }
 
-    monkeypatch.setattr("patchproof.benchmark.run_llm_benchmark_suite", fake_run_llm_benchmark_suite)
+    monkeypatch.setattr("gategrpo.benchmark.run_llm_benchmark_suite", fake_run_llm_benchmark_suite)
 
     result = run_llm_model_matrix(
         SMOKE_SUITE,
@@ -428,8 +428,8 @@ def test_llm_task_summary_reports_variance_and_currency():
     assert summary["currency"] == "EUR"
 
 
-def test_organic_diversification_suite_strictly_lifts_full_patchproof(tmp_path):
-    from patchproof.benchmark import run_benchmark_suite
+def test_organic_diversification_suite_strictly_lifts_full_gategrpo(tmp_path):
+    from gategrpo.benchmark import run_benchmark_suite
 
     suite_path = ROOT / "benchmarks" / "organic_diversification_suite.json"
     payload = run_benchmark_suite(
@@ -440,6 +440,6 @@ def test_organic_diversification_suite_strictly_lifts_full_patchproof(tmp_path):
     )
 
     summary = payload["summary"]
-    assert summary["full_patchproof"]["solve_at_budget"] == 1.0
+    assert summary["full_gategrpo"]["solve_at_budget"] == 1.0
     for baseline in ("single_shot", "linear_retry", "clean_context_review", "evidence_aware_review", "archive_no_routing"):
         assert summary[baseline]["solve_at_budget"] == 0.0

@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
-from patchproof import demo as demo_module
-from patchproof.llm import VLLM_DEFAULT_MODEL
+from gategrpo import demo as demo_module
+from gategrpo.llm import VLLM_DEFAULT_MODEL
 
 
 def test_run_demo_writes_summary_without_requiring_llm(tmp_path, monkeypatch):
@@ -27,7 +27,7 @@ def test_run_demo_writes_summary_without_requiring_llm(tmp_path, monkeypatch):
         return {
             "summary": {
                 "single_shot": {"solve_at_budget": 0.2},
-                "full_patchproof": {"solve_at_budget": 0.8},
+                "full_gategrpo": {"solve_at_budget": 0.8},
             }
         }
 
@@ -94,7 +94,7 @@ def test_run_demo_can_use_llm_for_hero_search(tmp_path, monkeypatch):
         return {
             "summary": {
                 "single_shot": {"solve_at_budget": 0.2},
-                "full_patchproof": {"solve_at_budget": 0.8},
+                "full_gategrpo": {"solve_at_budget": 0.8},
             }
         }
 
@@ -179,7 +179,7 @@ def test_run_demo_can_use_vllm_for_hero_search(tmp_path, monkeypatch):
         return {
             "summary": {
                 "single_shot": {"solve_at_budget": 0.2},
-                "full_patchproof": {"solve_at_budget": 0.8},
+                "full_gategrpo": {"solve_at_budget": 0.8},
             }
         }
 

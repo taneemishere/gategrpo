@@ -2,9 +2,9 @@ from pathlib import Path
 
 import json
 
-from patchproof.cli import main
-from patchproof.init_task import init_task, validate_task
-from patchproof.task import load_task
+from gategrpo.cli import main
+from gategrpo.init_task import init_task, validate_task
+from gategrpo.task import load_task
 
 
 def _write_sample_repo(root: Path) -> tuple[Path, Path]:
@@ -65,7 +65,7 @@ def test_scaffolded_tests_live_in_workspace_and_are_gate_discoverable(tmp_path):
     # Tests must be copied inside the workspace so the gate (cwd=workspace) can find them.
     assert (task.workspace / "tests" / "visible" / "test_ok.py").exists()
 
-    from patchproof.gates import pytest_gate
+    from gategrpo.gates import pytest_gate
 
     gate = pytest_gate(task.workspace, tuple(task.visible_tests), "visible_tests")
     assert gate.passed

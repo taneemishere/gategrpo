@@ -2,9 +2,9 @@ from pathlib import Path
 
 import json
 
-from patchproof.archive import CandidateArchive, build_run_metadata
-from patchproof.models import CandidateRecord, SearchBudget
-from patchproof.task import load_task
+from gategrpo.archive import CandidateArchive, build_run_metadata
+from gategrpo.models import CandidateRecord, SearchBudget
+from gategrpo.task import load_task
 
 
 ROOT = Path(__file__).resolve().parents[1]

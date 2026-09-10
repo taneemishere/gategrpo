@@ -11,7 +11,7 @@
 # the GPU) — otherwise vLLM will fail to allocate memory.
 #
 # Once running you can query it via curl or any OpenAI-compatible client
-# (including PatchProof's --llm mode). Point PatchProof at it with:
+# (including GateGRPO's --llm mode). Point GateGRPO at it with:
 #   --llm-provider vllm --llm-base-url http://<host>:8000/v1 \
 #   --llm-model Qwen3-Coder-30B-A3B-Instruct
 # See scripts/test_vllm_server.sh for a quick smoke test.
@@ -148,7 +148,7 @@ log "  gpu memory utilization = ${GPU_MEMORY_UTILIZATION}"
 log ""
 log "Once you see 'Uvicorn running on http://${HOST}:${PORT}', the server is ready."
 log "Smoke test it with: bash scripts/test_vllm_server.sh"
-log "Query from PatchProof with: --llm-provider vllm --llm-model ${SERVED_MODEL_NAME}"
+log "Query from GateGRPO with: --llm-provider vllm --llm-model ${SERVED_MODEL_NAME}"
 log ""
 log "Running: vllm ${ARGS[*]}"
 

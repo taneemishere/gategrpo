@@ -40,7 +40,7 @@ curl -sS "${AUTH_HEADER[@]}" \
 {
   "model": "${SERVED_MODEL_NAME}",
   "messages": [
-    {"role": "user", "content": "Reply with exactly: PatchProof vLLM server OK"}
+    {"role": "user", "content": "Reply with exactly: GateGRPO vLLM server OK"}
   ],
   "max_tokens": 32,
   "temperature": 0

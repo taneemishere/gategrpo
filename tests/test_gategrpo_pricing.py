@@ -1,6 +1,6 @@
 import json
 
-from patchproof.pricing import (
+from gategrpo.pricing import (
     PRICE_SCHEDULE_ENV,
     estimate_cost,
     load_price_schedule,

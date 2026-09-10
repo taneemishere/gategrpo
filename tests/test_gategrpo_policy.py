@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from patchproof.policy import run_policy_experiment
+from gategrpo.policy import run_policy_experiment
 
 
 ROOT = Path(__file__).resolve().parents[1]

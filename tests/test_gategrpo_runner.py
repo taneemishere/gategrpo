@@ -1,9 +1,9 @@
 import sys
 from pathlib import Path
 
-from patchproof import gates
-from patchproof.patching import parse_touched_files
-from patchproof.runner import run_task
+from gategrpo import gates
+from gategrpo.patching import parse_touched_files
+from gategrpo.runner import run_task
 
 
 ROOT = Path(__file__).resolve().parents[1]

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Minimal OpenAI-compatible client for the local vLLM Qwen3 server.
 
-Uses only the standard library (urllib), mirroring patchproof/llm.py, so it
+Uses only the standard library (urllib), mirroring gategrpo/llm.py, so it
 can run anywhere without extra dependencies. This is the same request shape
-PatchProof's --llm mode will use once the repo is pointed at the local server.
+GateGRPO's --llm mode will use once the repo is pointed at the local server.
 
 Examples:
     python3 scripts/query_vllm_example.py
@@ -58,7 +58,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--prompt",
-        default="Reply with exactly: PatchProof vLLM server OK",
+        default="Reply with exactly: GateGRPO vLLM server OK",
     )
     args = parser.parse_args()
     api_key = os.environ.get("VLLM_API_KEY") or None

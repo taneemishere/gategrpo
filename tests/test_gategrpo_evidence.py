@@ -1,5 +1,5 @@
-from patchproof.evidence import build_evidence_packet
-from patchproof.models import GateResult
+from gategrpo.evidence import build_evidence_packet
+from gategrpo.models import GateResult
 
 
 def test_release_gate_evidence_includes_failing_test_identifiers():

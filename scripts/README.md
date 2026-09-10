@@ -1,4 +1,4 @@
-# Local LLM serving for PatchProof
+# Local LLM serving for GateGRPO
 
 These scripts stand up a **private, OpenAI-compatible inference server** for
 `Qwen/Qwen3-Coder-30B-A3B-Instruct` using [vLLM], listening on **port 8000**.
@@ -63,10 +63,10 @@ curl http://<server-host>:8000/v1/chat/completions \
   }'
 ```
 
-Use it from PatchProof:
+Use it from GateGRPO:
 
 ```bash
-python3 -m patchproof demo --run-dir .patchproof_runs/demo --llm \
+python3 -m gategrpo demo --run-dir .gategrpo_runs/demo --llm \
   --llm-provider vllm --llm-base-url http://localhost:8000/v1
 ```
 
